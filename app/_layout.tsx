@@ -3,8 +3,6 @@ import React, { useEffect, useRef, useState, useMemo } from "react";
 import { View, StyleSheet, Animated } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
-import { StarProvider } from "../context/StarContext";
-import { ClearProvider } from "../context/ClearContext";
 import { AudioManagerProvider } from "../context/AudioManager";
 
 
@@ -93,18 +91,14 @@ function AnimatedSplashScreen({ children, image }: { children: React.ReactNode; 
 
 export default function RootLayout() {
   return (
-    <StarProvider>
-      <ClearProvider>
-        <AudioManagerProvider>
-          <AnimatedSplashScreen image={require("../assets/images/splash.png")}>
-            <StatusBar style="dark" animated hidden={false} />
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="(tabs)" />
-            </Stack>
-          </AnimatedSplashScreen>
-        </AudioManagerProvider>
-      </ClearProvider>
-    </StarProvider>
+    <AudioManagerProvider>
+      <AnimatedSplashScreen image={require("../assets/images/splash.png")}>
+        <StatusBar style="dark" animated hidden={false} />
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" />
+        </Stack>
+      </AnimatedSplashScreen>
+    </AudioManagerProvider>
   );
 }
 

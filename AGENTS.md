@@ -2,5 +2,20 @@
 
 ## Target Platform: Android Only
 
-- **안드로이드 전용**: 이 프로젝트는 오직 안드로이드(Android) 모바일 환경만을 타겟으로 설계 및 개발됩니다.
-- **iOS 관련 코드 및 설명 배제**: iOS 환경과 관련된 일체의 설명, 설정, 예외 처리(예: `playsInSilentModeIOS: true` 같은 iOS 무음 모드 무시 설정)를 제안하거나 코드에 반영하지 마세요. 오직 안드로이드 환경에 필요한 기능과 문제 해결에만 집중합니다.
+- **Android Exclusive**: This project is designed and developed strictly for the Android mobile environment.
+- **Exclude iOS Context**: Do not suggest, explain, or write any iOS-specific code, settings, or exception handling (e.g., `playsInSilentModeIOS: true`). Focus entirely on features and troubleshooting for Android.
+
+## Code Analysis & Dead Code Rules
+
+- **Dead Code Identification**: Do not blindly assume a file is "in use" just because it is `import`ed somewhere. You MUST verify two things: (1) Is it reachable from the main app router (`app/` directory)? (2) Are the exported values or hooks actually consumed/used within the components? (e.g., A Context `Provider` wrapping the app is Dead Code if its values are never read).
+- **Beware of Island Code**: Watch out for clusters of files that only import each other in a cyclic manner within a specific feature folder. If this cluster is completely disconnected from the main router, classify it as Dead Code.
+
+## Current Project Context
+
+- **Active Main Screen**: Currently, the ONLY active screen is `app/(tabs)/sound_grt/index.tsx` (Piano Keyboard Tab). All other remnants of word games, mini-games, and other tabs that are not directly/indirectly connected to this screen are considered 'Dead Code' as of now.
+
+## Auto-Learning & Self-Correction
+
+- **Proactive Documentation**: This `AGENTS.md` file acts as your permanent memory and system prompt extension. 
+- **Immediate Action on Errors/Learnings**: Whenever you encounter a new problem (e.g., bugs, library conflicts, missed context, dead code analysis failure) or the user corrects your mistake, you MUST IMMEDIATELY and PROACTIVELY use your file editing tools to append the root cause and the workaround/solution to `AGENTS.md`. Do NOT wait for the user to tell you to do this.
+- **Language Policy**: ALL entries in `AGENTS.md` MUST be written in clear, concise English to ensure maximum logical clarity and strict adherence by the LLM system.
