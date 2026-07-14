@@ -135,8 +135,15 @@ export function AudioManagerProvider({ children }: Readonly<{ children: React.Re
     return soundsRef.current.has(soundKey);
   };
 
-  // 앱 종료 시 정리
+  // 앱 초기화 시 안드로이드 오디오 모드 설정 및 앱 종료 시 정리
   useEffect(() => {
+    // 안드로이드에서 미디어가 스피커로 정상 출력되도록 설정
+    Audio.setAudioModeAsync({
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: false,
+      staysActiveInBackground: false,
+    }).catch(err => console.warn('오디오 모드 설정 실패:', err));
+
     return () => {
       console.log('🏁 AudioManager: 앱 종료 - 최종 정리');
       stopAllSounds();

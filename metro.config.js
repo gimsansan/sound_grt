@@ -9,8 +9,8 @@ config.resolver.sourceExts = [...config.resolver.sourceExts, 'svg'];
 
 // .riv 파일을 asset으로 인식하도록 추가
 config.resolver.assetExts.push('riv');
-// .flac 오디오를 asset으로 인식
-config.resolver.assetExts.push('flac');
+// .flac 및 .ogg 오디오를 asset으로 인식
+config.resolver.assetExts.push('flac', 'ogg');
 
 module.exports = config;
 
