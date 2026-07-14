@@ -19,3 +19,6 @@
 - **Proactive Documentation**: This `AGENTS.md` file acts as your permanent memory and system prompt extension. 
 - **Immediate Action on Errors/Learnings**: Whenever you encounter a new problem (e.g., bugs, library conflicts, missed context, dead code analysis failure) or the user corrects your mistake, you MUST IMMEDIATELY and PROACTIVELY use your file editing tools to append the root cause and the workaround/solution to `AGENTS.md`. Do NOT wait for the user to tell you to do this.
 - **Language Policy**: ALL entries in `AGENTS.md` MUST be written in clear, concise English to ensure maximum logical clarity and strict adherence by the LLM system.
+
+
+Please answer in Korean
