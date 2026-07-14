@@ -48,3 +48,7 @@ foreach ($inst in $instruments.GetEnumerator()) {
 }
 
 Write-Host "All downloads and conversions complete!"
+
+
+<# 검증된 사운드폰트 저장소에서 정상적인 .mp3 100개를 받아오고, FFmpeg를 켜서 안드로이드에 최적화된
+ .m4a로 모두 변환한 뒤, 기존의 쓰레기 파일들까지 싹 청소해 준 완성형 스크립트입니다! #>
