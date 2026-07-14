@@ -1,0 +1,36 @@
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+
+# Android
+android/
+.idea/
+.gradle/
+local.properties
+*.apk
+*.aab
+
+# iOS
+ios/
+*.xcworkspace
+xcuserdata
+Pods/
+Podfile.lock
+
+# Environment variables
+.env
+.env.local
+
+# Expo specific
+expo-env.d.ts
