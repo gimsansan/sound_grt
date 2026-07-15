@@ -93,6 +93,16 @@ class CompatSound {
     return this.getStatusAsync();
   }
 
+  // [수정 ②-A] 기존 네이티브 플레이어를 파괴하지 않고 소스만 교체해 재생 (풀 재활용용)
+  // 주의: 기존 playbackStatusUpdate 구독은 유지되지만, 호출 측(AudioManager)에서
+  // attachLifecycle로 재등록하므로 여기서는 구독을 건드리지 않는다.
+  async replaceAsync(source: AudioSource): Promise<PlaybackStatus> {
+    this.player.replace(source);
+    await this.player.seekTo(0);
+    this.player.play();
+    return this.getStatusAsync();
+  }
+
   async playFromPositionAsync(positionMillis: number): Promise<PlaybackStatus> {
     await this.player.seekTo(positionMillis / 1000);
     this.player.play();
